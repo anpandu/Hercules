@@ -121,3 +121,6 @@ Thumbs.db
 /vcproj-*/plugin-*/
 
 /persistence/*
+.dockerignore
+docker-compose.yaml
+Dockerfile
