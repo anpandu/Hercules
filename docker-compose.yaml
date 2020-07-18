@@ -27,39 +27,39 @@ services:
     restart: always
     networks:
       - net
-#   loginserver:
-#     image: anpandu/hercules:0.0.1
-#     depends_on:
-#       - "mysql"
-#     ports:
-#       - 6900:6900
-#     command: sh -c "./login-server.sh"
-#     restart: always
-#     networks:
-#       - net
-#   charserver:
-#     image: anpandu/hercules:0.0.1
-#     depends_on:
-#       - "mysql"
-#       - "loginserver"
-#     ports:
-#       - 6121:6121
-#     command: sh -c "./char-server.sh"
-#     restart: always
-#     networks:
-#       - net
-#   mapserver:
-#     image: anpandu/hercules:0.0.1
-#     depends_on:
-#       - "mysql"
-#       - "loginserver"
-#       - "charserver"
-#     ports:
-#       - 5121:5121
-#     command: sh -c "./map-server.sh"
-#     restart: always
-#     networks:
-#       - net
+  loginserver:
+    image: anpandu/hercules:0.0.1
+    depends_on:
+      - "mysql"
+    ports:
+      - 6900:6900
+    command: sh -c "./login-server.sh"
+    restart: always
+    networks:
+      - net
+  charserver:
+    image: anpandu/hercules:0.0.1
+    depends_on:
+      - "mysql"
+      - "loginserver"
+    ports:
+      - 6121:6121
+    command: sh -c "./char-server.sh"
+    restart: always
+    networks:
+      - net
+  mapserver:
+    image: anpandu/hercules:0.0.1
+    depends_on:
+      - "mysql"
+      - "loginserver"
+      - "charserver"
+    ports:
+      - 5121:5121
+    command: sh -c "./map-server.sh"
+    restart: always
+    networks:
+      - net
 networks:
   net:
     driver: bridge
